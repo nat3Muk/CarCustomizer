@@ -2,7 +2,7 @@ package main.java.com.carcustomizer;
 
 import main.java.com.carcustomizer.ui.ConsoleUI;
 import main.java.com.carcustomizer.ui.InputHandler;
-
+import main.java.com.carcustomizer.models.*;
 public class CarCustomizerApp {
     public static void main(String[] args) {
         ConsoleUI ui = new ConsoleUI();
@@ -33,6 +33,9 @@ public class CarCustomizerApp {
             case 2:
                 // Customize a Car logic
                 System.out.println("BUILD YOUR DREAM MODEL CAR");
+                CarModel carModels = new CarModel();
+                carModels.readCSV("/Users/nathanmukooba/Documents/cu_boulder20-24/Fall_2023_CUBoulder/CSCi4448-OOP/Project6n7/final-project-nat3Muk/src/main/java/com/carcustomizer/models/csvs/2020Models.csv");
+                carModels.printCarModels();
                 break;
             case 3:
                 System.out.println("Exiting the application. Goodbye!");
