@@ -13,7 +13,7 @@ public class CarModel {
     private Map<String, List<String>> carModels;
 
     public CarModel() {
-        carModels = new HashMap<>();
+        carModels = new HashMap<>(); // Initialize a HashMap to store car makes and models
     }
 
     public void readCSV(String filePath) {
@@ -26,36 +26,39 @@ public class CarModel {
                     firstLine = false;
                     continue; // Skip the header line
                 }
-                parseCSVLine(line);
+                parseCSVLine(line); // Parse each line of the CSV file
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Handle file IO exceptions
         }
     }
 
     private void parseCSVLine(String line) {
         StringTokenizer tokenizer = new StringTokenizer(line, ",");
-        List<String> values = new ArrayList<>();
+        List<String> values = new ArrayList<>(); // Create a list to hold values
 
         // Skip the first token which contains the year
         tokenizer.nextToken();
 
+        // Extract and clean each token (value) from the CSV line
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken().replaceAll("\"", "").trim();
-            values.add(token);
+            values.add(token); // Add cleaned token to the list
         }
 
-        String make = values.get(0);
-        values.remove(0);
+        String make = values.get(0); // Get the make (first value)
+        values.remove(0); // Remove the make from the values list
 
+        // Update carModels map with make as key and list of models as value
         if (carModels.containsKey(make)) {
-            carModels.get(make).addAll(values);
+            carModels.get(make).addAll(values); // Add models if make already exists
         } else {
-            carModels.put(make, values);
+            carModels.put(make, values); // Add a new make with its models to the map
         }
     }
 
     public void printCarModels() {
+        // Print each make and its associated models
         for (Map.Entry<String, List<String>> entry : carModels.entrySet()) {
             System.out.println("Make: " + entry.getKey());
             System.out.println("Models: " + entry.getValue());
@@ -63,6 +66,7 @@ public class CarModel {
         }
     }
 
+    // The main method is commented out to be used separately
     // public static void main(String[] args) {
     //     CarModel carModels = new CarModel();
     //     carModels.readCSV("path/to/your/file.csv");
