@@ -61,7 +61,7 @@ public class CarModel {
         // Print each make and its associated models
         for (Map.Entry<String, List<String>> entry : carModels.entrySet()) {
             System.out.println("Make: " + entry.getKey());
-            System.out.println("Models: " + entry.getValue());
+            System.out.println("Model, [BodyType]: " + entry.getValue());
             System.out.println();
         }
     }

@@ -1,4 +1,4 @@
-package main.java.com.carcustomizer;
+package main.java.com.carcustomizer.services;
 
 public class CustomizationOptions {
 

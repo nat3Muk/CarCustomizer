@@ -1,9 +1,9 @@
 package main.java.com.carcustomizer;
 
-import main.java.com.carcustomizer.CustomizationOptions.Color;
-import main.java.com.carcustomizer.CustomizationOptions.WheelType;
-import main.java.com.carcustomizer.CustomizationOptions.Interior;
-import main.java.com.carcustomizer.CustomizationOptions.SoundSystem;
+import main.java.com.carcustomizer.services.CustomizationOptions.Color;
+import main.java.com.carcustomizer.services.CustomizationOptions.Interior;
+import main.java.com.carcustomizer.services.CustomizationOptions.SoundSystem;
+import main.java.com.carcustomizer.services.CustomizationOptions.WheelType;
 
 public class Car {
     private Color color;
