@@ -2,10 +2,11 @@
 # Final Project(Project 5,6,7)
 
 Team Members:
-1. Name
-2. Name
+1. Name: Abiriham Bitew
+2. Name Nathan Mukooba
 
-Java Version:
+Java Version: Installed from JDK "Java 21"
 
 Additional Comments:
 
+To run this project do: **javac main/java/com/carcustomizer/CarCustomizerApp.java** to compile everything, then run **java -cp . main.java.com.carcustomizer.CarCustomizerApp**.
