@@ -8,6 +8,7 @@ Team Members:
 Java Version: Installed from JDK "Java 21"
 
 Additional Comments:
-
-To run this project do: **javac main/java/com/carcustomizer/CarCustomizerApp.java** to compile everything, then run **java -cp . main.java.com.carcustomizer.CarCustomizerApp**.
-[Car Data Open-Source] (https://github.com/abhionlyone/us-car-models-data)
+<br>
+To run this project do: **javac main/java/com/carcustomizer/CarCustomizerApp.java** <br>
+to compile everything, then run **java -cp . main.java.com.carcustomizer.CarCustomizerApp**. <br>
+[Car Data Open-Source](https://github.com/abhionlyone/us-car-models-data)
