@@ -92,7 +92,7 @@ public class CarCustomizerManager {
         System.out.println("Sound System selected: " + car.getSoundSystem());
     }
 
-// ... Methods for other functionalities (save, load, etc.)
+// ... Methods for other functionalities (save, load, etc year maike model .)
 }
 
 
