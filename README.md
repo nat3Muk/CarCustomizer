@@ -5,7 +5,8 @@ Team Members:
 1. Name: Abiriham Bitew
 2. Name Nathan Mukooba
 
-Java Version: 20
+Java Version: Installed from JDK "Java 21"
 
 Additional Comments:
 
+To run this project do: **javac main/java/com/carcustomizer/CarCustomizerApp.java** to compile everything, then run **java -cp . main.java.com.carcustomizer.CarCustomizerApp**.
