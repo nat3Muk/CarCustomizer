@@ -33,6 +33,10 @@ public class CarCustomizerManager {
                     customizeCar();
                     break;
                 // ... other cases for saving, loading, exiting
+                case 3:
+                    System.out.println("Exiting program...");
+                    running = false; // This will exit the while loop and end the program
+                    break;
                 default:
                     System.out.println("Invalid choice.");
                     break;
@@ -42,10 +46,9 @@ public class CarCustomizerManager {
 // ... [Previous Class Definition Continues]
 
     private void viewCarOptions() {
-        System.out.println("View Car Options");
         CarModel carModels = new CarModel();
-        carModels.readCSV("../src/main/java/com/carcustomizer/models/csvs/2020Models.csv");
-        carModels.printCarModels();
+        carModels.readCSV("main/java/com/carcustomizer/models/csvs/2020Models.csv");
+        carModels.printCarModelsByYear(2020);
     }
 
     private void customizeCar() {
