@@ -14,7 +14,6 @@ public class ConsoleUI {
         System.out.println("1. View Available Car Makes");
         System.out.println("2. Customize a Car");
         System.out.println("3. Exit");
-        System.out.print("Please enter your choice (1-3): ");
     }
 
     //might not need this...
