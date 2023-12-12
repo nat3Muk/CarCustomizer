@@ -24,7 +24,7 @@ public class CarCustomizerManager {
         boolean running = true;
         while (running) {
             ui.displayMainMenu();
-            int choice = input.getUserChoice(1, 5);
+            int choice = input.getUserChoice(1, 3);
             switch (choice) {
                 case 1:
                     viewCarOptions();
