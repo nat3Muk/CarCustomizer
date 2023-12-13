@@ -9,15 +9,19 @@ import main.java.com.carcustomizer.services.CustomizationOptions.SoundSystem;
 import main.java.com.carcustomizer.services.CustomizationOptions.WheelType;
 import main.java.com.carcustomizer.Car;
 
+import java.util.Scanner;
+
 public class CarCustomizerManager {
     private ConsoleUI ui;
     private InputHandler input;
     private Car car;
+    private CarModel carModels;
 
     public CarCustomizerManager() {
         this.ui = new ConsoleUI();
         this.input = new InputHandler();
         this.car = new Car();
+        this.carModels = new CarModel(); // Instantiate CarModel
     }
 
     public void start() {
@@ -30,7 +34,7 @@ public class CarCustomizerManager {
                     viewCarOptions();
                     break;
                 case 2:
-                    customizeCar();
+                    selectCarInCatalog();
                     break;
                 // ... other cases for saving, loading, exiting
                 case 3:
@@ -45,10 +49,42 @@ public class CarCustomizerManager {
     }
 // ... [Previous Class Definition Continues]
 
+
     private void viewCarOptions() {
         CarModel carModels = new CarModel();
         carModels.readCSV("main/java/com/carcustomizer/models/csvs/2020Models.csv");
         carModels.printCarModelsByYear(2020);
+        // Wait for user input to continue
+        System.out.println("Press Enter to return to the main menu...");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+    }
+    //implement this stuff into CarCustomization options
+    private void selectCarInCatalog() {
+        CarModel carModels = new CarModel();
+        carModels.readCSV("main/java/com/carcustomizer/models/csvs/2020Models.csv");
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Select Car Make
+        System.out.println("========Select a Car Make==========");
+        carModels.printCarMakes();
+        String selectedMake = scanner.nextLine();
+
+        // Select Car Model for the chosen make
+        System.out.println("[Select a Model for " + selectedMake + "]" + ":");
+        carModels.printCarModelsByMake(selectedMake);
+        String selectedModel = scanner.nextLine();
+
+        // Display Body Types for the chosen make and model
+        System.out.println("[Available Body Types for " + selectedModel + " under " + selectedMake +  "]" + ":");
+        carModels.printBodyTypesByModel(selectedMake, selectedModel);
+
+        System.out.println("Do you want to customize this car? (y/n)");
+        String customizeChoice = scanner.nextLine();
+        if (customizeChoice.equalsIgnoreCase("y")) {
+            customizeCar();
+        }
     }
 
     private void customizeCar() {
