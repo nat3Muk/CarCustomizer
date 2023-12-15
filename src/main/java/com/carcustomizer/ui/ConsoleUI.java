@@ -1,4 +1,6 @@
 package main.java.com.carcustomizer.ui;
+import main.java.com.carcustomizer.services.Car;
+
 import java.util.Scanner;
 
 public class ConsoleUI {
@@ -16,14 +18,16 @@ public class ConsoleUI {
         System.out.println("3. Exit");
     }
 
-    //might not need this...
-    public void displayCarModelsSubMenu() {
-        System.out.println("=== Available Car Makes ===");
-        System.out.println("1. Model 1: BMW");
-        System.out.println("2. Model 2: Audi");
-        // Display other available models similarly
-        System.out.println("0. Back to Main Menu");
-        System.out.print("Please select a car model (1-N or 0 to go back): ");
+    // Method to capture and display finalized car details
+    public void displayFinalizedDetails(String selectedMake, String selectedModel, String selectedBodyType, Car car) {
+        System.out.println("Finalized Car Details:");
+        System.out.println("Make: " + selectedMake);
+        System.out.println("Model: " + selectedModel);
+        System.out.println("Body Type: " + selectedBodyType);
+        System.out.println("Color: " + car.getColor());
+        System.out.println("Wheel Type: " + car.getWheelType());
+        System.out.println("Interior: " + car.getInterior());
+        System.out.println("Sound System: " + car.getSoundSystem());
     }
 
     public int getUserChoice() {

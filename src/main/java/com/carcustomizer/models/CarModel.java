@@ -1,87 +1,9 @@
 package main.java.com.carcustomizer.models;
-//
-//import java.io.BufferedReader;
-//import java.io.FileReader;
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.StringTokenizer;
-//
-//public class CarModel {
-//    private Map<String, List<String>> carModels;
-//
-//    public CarModel() {
-//        carModels = new HashMap<>(); // Initialize a HashMap to store car makes and models
-//    }
-//
-//    public void readCSV(String filePath) {
-//        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-//            String line;
-//            boolean firstLine = true;
-//
-//            while ((line = br.readLine()) != null) {
-//                if (firstLine) {
-//                    firstLine = false;
-//                    continue; // Skip the header line
-//                }
-//                parseCSVLine(line); // Parse each line of the CSV file
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace(); // Handle file IO exceptions
-//        }
-//    }
-//
-//    private void parseCSVLine(String line) {
-//        StringTokenizer tokenizer = new StringTokenizer(line, ",");
-//        List<String> values = new ArrayList<>(); // Create a list to hold values
-//
-//        // Skip the first token which contains the year
-//        tokenizer.nextToken();
-//
-//        // Extract and clean each token (value) from the CSV line
-//        while (tokenizer.hasMoreTokens()) {
-//            String token = tokenizer.nextToken().replaceAll("\"", "").trim();
-//            values.add(token); // Add cleaned token to the list
-//        }
-//
-//        String make = values.get(0); // Get the make (first value)
-//        values.remove(0); // Remove the make from the values list
-//
-//        // Update carModels map with make as key and list of models as value
-//        if (carModels.containsKey(make)) {
-//            carModels.get(make).addAll(values); // Add models if make already exists
-//        } else {
-//            carModels.put(make, values); // Add a new make with its models to the map
-//        }
-//    }
-//
-//    public void printCarModels() {
-//        // Print each make and its associated models
-//        for (Map.Entry<String, List<String>> entry : carModels.entrySet()) {
-//            System.out.println("Make: " + entry.getKey());
-//            System.out.println("Model, [BodyType]: " + entry.getValue());
-//            System.out.println();
-//        }
-//    }
-//
-//    // The main method is commented out to be used separately
-//    // public static void main(String[] args) {
-//    //     CarModel carModels = new CarModel();
-//    //     carModels.readCSV("path/to/your/file.csv");
-//    //     carModels.printCarModels();
-//    // }
-//}
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class CarModel {
     private Map<Integer, Map<String, Map<String, List<String>>>> carData; // Store car data by year, make, and body type
@@ -123,26 +45,70 @@ public class CarModel {
         String bodyType = values.get(values.size() - 1); // Get the body type (last value)
 
         // Add data to the carData map
-        if (!carData.containsKey(year)) {
-            carData.put(year, new HashMap<>()); // Initialize a new map for the year if it doesn't exist
-        }
-
-        Map<String, Map<String, List<String>>> yearData = carData.get(year);
-
-        if (!yearData.containsKey(make)) {
-            yearData.put(make, new HashMap<>()); // Initialize a new map for the make if it doesn't exist
-        }
-
-        Map<String, List<String>> makeData = yearData.get(make);
-
-        if (!makeData.containsKey(model)) {
-            makeData.put(model, new ArrayList<>()); // Initialize a new list for the model if it doesn't exist
-        }
-
-        List<String> models = makeData.get(model);
-        models.add(bodyType); // Add the body type to the list
+        carData
+                .computeIfAbsent(year, k -> new HashMap<>())
+                .computeIfAbsent(make, k -> new HashMap<>())
+                .computeIfAbsent(model, k -> new ArrayList<>())
+                .add(bodyType);
     }
 
+    public void printCarMakes() {
+        System.out.println("Available Car Makes:");
+        for (Map.Entry<Integer, Map<String, Map<String, List<String>>>> entry : carData.entrySet()) {
+            Map<String, Map<String, List<String>>> yearData = entry.getValue();
+            for (String make : yearData.keySet()) {
+                System.out.println(make);
+            }
+        }
+    }
+
+    public void printCarModelsByMake(String selectedMake) {
+        System.out.println("======[Available Models for " + selectedMake + ":]=======");
+        for (Map.Entry<Integer, Map<String, Map<String, List<String>>>> entry : carData.entrySet()) {
+            Map<String, Map<String, List<String>>> yearData = entry.getValue();
+            Map<String, List<String>> makeData = yearData.get(selectedMake);
+            if (makeData != null) {
+                for (String model : makeData.keySet()) {
+                    System.out.println(model);
+                }
+            }
+        }
+    }
+
+    public void printBodyTypesByModel(String selectedMake, String selectedModel) {
+        System.out.println("=====[Available Body Types for " + selectedMake + " under " + selectedModel + ":]======");
+        for (Map.Entry<Integer, Map<String, Map<String, List<String>>>> entry : carData.entrySet()) {
+            Map<String, Map<String, List<String>>> yearData = entry.getValue();
+            Map<String, List<String>> makeData = yearData.get(selectedMake);
+            if (makeData != null) {
+                List<String> bodyTypes = makeData.get(selectedModel);
+                if (bodyTypes != null) {
+                    for (String bodyType : bodyTypes) {
+                        System.out.println(bodyType);
+                    }
+                }
+            }
+        }
+    }
+
+    public List<String> getBodyTypesByModel(String selectedMake, String selectedModel) {
+        List<String> availableBodyTypes = new ArrayList<>();
+
+        for (Map.Entry<Integer, Map<String, Map<String, List<String>>>> entry : carData.entrySet()) {
+            Map<String, Map<String, List<String>>> yearData = entry.getValue();
+            Map<String, List<String>> makeData = yearData.get(selectedMake);
+            if (makeData != null) {
+                List<String> bodyTypes = makeData.get(selectedModel);
+                if (bodyTypes != null) {
+                    availableBodyTypes.addAll(bodyTypes);
+                }
+            }
+        }
+        return availableBodyTypes;
+    }
+
+    //Enables printing and creation of diverse models based on the year,
+    // facilitating the management of multiple car datasets organized chronologically.
     public void printCarModelsByYear(int year) {
         if (carData.containsKey(year)) {
             Map<String, Map<String, List<String>>> yearData = carData.get(year);
@@ -167,9 +133,79 @@ public class CarModel {
         }
     }
 
-//    public static void main(String[] args) {
-//        CarModel carModels = new CarModel();
-//        carModels.readCSV("main/java/com/carcustomizer/models/csvs/2020Models.csv");
-//        carModels.printCarModelsByYear(2020);
-//    }
+    public boolean isValidCarMake(String make) {
+        for (Map.Entry<Integer, Map<String, Map<String, List<String>>>> entry : carData.entrySet()) {
+            Map<String, Map<String, List<String>>> yearData = entry.getValue();
+            if (yearData.containsKey(make)) {
+                return true; // Make found in available car makes
+            }
+        }
+        return false; // Make not found
+    }
+
+    public boolean isValidCarModel(String make, String model) {
+        if (carData.containsKey(make)) {
+            Map<String, Map<String, List<String>>> makeData = carData.get(make);
+            if (makeData.containsKey(model)) {
+                return true; // Model found for the given make
+            }
+        }
+        return false; // Model not found
+    }
+
+    public boolean isValidBodyType(String make, String model, String bodyType) {
+        if (carData.containsKey(make)) {
+            Map<String, Map<String, List<String>>> makeData = carData.get(make);
+            if (makeData.containsKey(model)) {
+                Map<String, List<String>> bodyTypes = (Map<String, List<String>>) makeData.get(model);
+                return bodyTypes.containsKey(bodyType); // Check if the body type exists for the given make and model
+            }
+        }
+        return false; // Body type not found
+    }
+    public String getValidCarMake(Scanner scannerInput) {
+        String selectedMake;
+        while (true) {
+            System.out.println("========Select a Car Make==========");
+            this.printCarMakes();
+            selectedMake = scannerInput.nextLine();
+
+            if (this.isValidCarMake(selectedMake)) {
+                break; // Break the loop if the car make is valid
+            } else {
+                System.out.println("Invalid Car Make. Please select a valid Car Make.");
+            }
+        }
+        return selectedMake;
+    }
+
+        public String getValidCarModel(Scanner scannerInput, String selectedMake) {
+            String selectedModel;
+            while (true) {
+                System.out.println("[Select a Model for " + selectedMake + "]" + ":");
+                this.printCarModelsByMake(selectedMake);
+                selectedModel = scannerInput.nextLine();
+                if (this.isValidCarModel(selectedMake, selectedModel)) {
+                    break;
+                } else {
+                    System.out.println("Invalid Car Model. Please select a valid Car Model for the chosen make.");
+                }
+            }
+            return selectedModel;
+        }
+
+        public String getValidBodyType(Scanner scannerInput, String selectedMake, String selectedModel) {
+            String selectedBodyType;
+            while (true) {
+                System.out.println("[Available Body Types for " + selectedModel + " under " + selectedMake + "]" + ":");
+                this.printBodyTypesByModel(selectedMake, selectedModel);
+                selectedBodyType = scannerInput.nextLine();
+                if (this.isValidBodyType(selectedMake, selectedModel, selectedBodyType)) {
+                    break;
+                } else {
+                    System.out.println("Invalid Body Type. Please select a valid Body Type for the chosen make and model.");
+                }
+            }
+            return selectedBodyType;
+        }
 }
