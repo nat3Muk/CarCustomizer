@@ -1,0 +1,4 @@
+Color: Blue
+Wheel Type: Alloy
+Interior: Leather
+Sound System: Premium
