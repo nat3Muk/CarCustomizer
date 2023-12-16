@@ -37,5 +37,4 @@ public class ConsoleUI {
         return scanner.nextInt();
     }
 
-    // Other methods to display sub-menus, messages, etc.
 }
