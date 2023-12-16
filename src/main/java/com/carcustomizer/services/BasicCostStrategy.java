@@ -4,10 +4,8 @@ public class BasicCostStrategy implements CustomizationCostStrategy {
     @Override
     public double calculateCost(Car car) {
         double cost = 50000; // Base cost
-
-        // Example cost additions based on customization options
-        // These values are placeholders and should be adjusted based on your application's requirements
-
+// adding a Strategy pattern that will calculate the costs of each option.
+        
         // Adding cost based on wheel type
         switch (car.getWheelType()) {
             case ALLOY:
