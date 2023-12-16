@@ -80,3 +80,27 @@ Interior: Fabric
 Sound System: Premium
 Total Cost: $51500.0
 
+Car Make: null
+Car Model: null
+Color: Blue
+Wheel Type: Alloy
+Interior: Leather
+Sound System: Premium
+Make: Nissan
+Model: Kicks
+Body Type: [SUV]
+Color: Blue
+Wheel Type: Alloy
+Interior: Leather
+Sound System: Premium
+Total Cost: $52200.0
+
+Make: Nissan
+Model: Kicks
+Body Type: [SUV]
+Color: Blue
+Wheel Type: Alloy
+Interior: Leather
+Sound System: Premium
+Total Cost: $52200.0
+
