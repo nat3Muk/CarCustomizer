@@ -211,9 +211,6 @@ public class CarCustomizerManager {
     }
 
     //Method to save the finalized car details
-    //Change this to save to a List<> instead of a txt
-    //Method to save the finalized car details
-//Change this to save to a List<> instead of a txt
     private void saveCustomizedCar() {
         // Assuming you want to save to a file named "customized_car.txt"
         // You can modify this to suit your data storage needs
