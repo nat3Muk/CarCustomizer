@@ -29,6 +29,7 @@ public class CarModel {
         }
     }
 
+    // link to the data being parsed: https://github.com/abhionlyone/us-car-models-data/blob/master/2020.csv 
     private void parseCSVLine(String line) {
         StringTokenizer tokenizer = new StringTokenizer(line, ",");
         List<String> values = new ArrayList<>(); // Create a list to hold values
@@ -108,7 +109,7 @@ public class CarModel {
     }
 
     //Enables printing and creation of diverse models based on the year,
-    // facilitating the management of multiple car datasets organized chronologically.
+    // allowing management of multiple car datasets organized chronologically.
     public void printCarModelsByYear(int year) {
         if (carData.containsKey(year)) {
             Map<String, Map<String, List<String>>> yearData = carData.get(year);
@@ -133,6 +134,7 @@ public class CarModel {
         }
     }
 
+    //check for Car make within the parsed car data
     public boolean isValidCarMake(String make) {
         for (Map.Entry<Integer, Map<String, Map<String, List<String>>>> entry : carData.entrySet()) {
             Map<String, Map<String, List<String>>> yearData = entry.getValue();
@@ -143,6 +145,7 @@ public class CarModel {
         return false; // Make not found
     }
 
+    //check for Car model within the parsed car data
     public boolean isValidCarModel(String make, String model) {
         if (carData.containsKey(make)) {
             Map<String, Map<String, List<String>>> makeData = carData.get(make);
@@ -153,6 +156,7 @@ public class CarModel {
         return false; // Model not found
     }
 
+    //check for Car body type within the parsed car data
     public boolean isValidBodyType(String make, String model, String bodyType) {
         if (carData.containsKey(make)) {
             Map<String, Map<String, List<String>>> makeData = carData.get(make);
@@ -163,6 +167,7 @@ public class CarModel {
         }
         return false; // Body type not found
     }
+    //check for Car make within the parsed car data by string
     public String getValidCarMake(Scanner scannerInput) {
         String selectedMake;
         while (true) {
@@ -181,31 +186,42 @@ public class CarModel {
 
     public String getValidCarModel(Scanner scannerInput, String selectedMake) {
         String selectedModel;
+        // Loop until a valid car model is selected for the chosen make
         while (true) {
             System.out.println("[Select a Model for " + selectedMake + "]" + ":");
+            // Print available models for the selected make
             this.printCarModelsByMake(selectedMake);
-            selectedModel = scannerInput.nextLine();
+            selectedModel = scannerInput.nextLine(); // Get user input for the selected model
+    
+            // Check if the selected car model is valid for the chosen make
             if (this.isValidCarModel(selectedMake, selectedModel)) {
-                break;
+                break; // Break the loop if the car model is valid
             } else {
+                // Prompt the user for a valid car model if an invalid one is selected
                 System.out.println("Invalid Car Model. Please select a valid Car Model for the chosen make.");
             }
         }
-        return selectedModel;
+        return selectedModel; // Return the selected valid car model
     }
-
+    
     public String getValidBodyType(Scanner scannerInput, String selectedMake, String selectedModel) {
         String selectedBodyType;
+        // Loop until a valid body type is selected for the chosen make and model
         while (true) {
             System.out.println("[Available Body Types for " + selectedModel + " under " + selectedMake + "]" + ":");
+            // Print available body types for the selected make and model
             this.printBodyTypesByModel(selectedMake, selectedModel);
-            selectedBodyType = scannerInput.nextLine();
+            selectedBodyType = scannerInput.nextLine(); // Get user input for the selected body type
+    
+            // Check if the selected body type is valid for the chosen make and model
             if (this.isValidBodyType(selectedMake, selectedModel, selectedBodyType)) {
-                break;
+                break; // Break the loop if the body type is valid
             } else {
+                // Prompt the user for a valid body type if an invalid one is selected
                 System.out.println("Invalid Body Type. Please select a valid Body Type for the chosen make and model.");
             }
         }
-        return selectedBodyType;
+        return selectedBodyType; // Return the selected valid body type
     }
+
 }
