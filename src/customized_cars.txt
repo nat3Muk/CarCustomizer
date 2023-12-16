@@ -1,0 +1,18 @@
+Make: Ford
+Model: Fusion
+Body Type: [Sedan]
+Color: Blue
+Wheel Type: Alloy
+Interior: Suede
+Sound System: Deluxe
+Total Cost: $52500.0
+
+Make: Ford
+Model: Fusion
+Body Type: [Sedan]
+Color: Blue
+Wheel Type: Alloy
+Interior: Suede
+Sound System: Deluxe
+Total Cost: $52500.0
+

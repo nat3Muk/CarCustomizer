@@ -1,4 +1,82 @@
+Make: Ford
+Model: Explorer
+Body Type: [SUV]
+Color: Black
+Wheel Type: Chrome
+Interior: Suede
+Sound System: Deluxe
+Total Cost: $52650.0
+
+Car Make: null
+Car Model: null
 Color: Blue
 Wheel Type: Alloy
-Interior: Leather
+Interior: Suede
 Sound System: Premium
+
+Make: BMW
+Model: X3
+Body Type: [SUV]
+Color: Blue
+Wheel Type: Alloy
+Interior: Suede
+Sound System: Premium
+Total Cost: $52000.0
+
+Make: BMW
+Model: X3
+Body Type: [SUV]
+Color: Blue
+Wheel Type: Alloy
+Interior: Suede
+Sound System: Premium
+Total Cost: $52000.0
+
+Car Make: null
+Car Model: null
+Color: Blue
+Wheel Type: Steel
+Interior: Fabric
+Sound System: Premium
+Make: Jaguar
+Model: XF
+Body Type: Wagon]
+Color: Blue
+Wheel Type: Steel
+Interior: Fabric
+Sound System: Premium
+Total Cost: $51500.0
+
+Make: Jaguar
+Model: XF
+Body Type: Wagon]
+Color: Blue
+Wheel Type: Steel
+Interior: Fabric
+Sound System: Premium
+Total Cost: $51500.0
+
+Car Make: null
+Car Model: null
+Color: Blue
+Wheel Type: Steel
+Interior: Fabric
+Sound System: Premium
+Make: Nissan
+Model: LEAF
+Body Type: [Hatchback]
+Color: Blue
+Wheel Type: Steel
+Interior: Fabric
+Sound System: Premium
+Total Cost: $51500.0
+
+Make: Nissan
+Model: LEAF
+Body Type: [Hatchback]
+Color: Blue
+Wheel Type: Steel
+Interior: Fabric
+Sound System: Premium
+Total Cost: $51500.0
+

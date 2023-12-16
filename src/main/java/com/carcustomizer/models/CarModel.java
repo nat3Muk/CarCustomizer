@@ -179,33 +179,33 @@ public class CarModel {
         return selectedMake;
     }
 
-        public String getValidCarModel(Scanner scannerInput, String selectedMake) {
-            String selectedModel;
-            while (true) {
-                System.out.println("[Select a Model for " + selectedMake + "]" + ":");
-                this.printCarModelsByMake(selectedMake);
-                selectedModel = scannerInput.nextLine();
-                if (this.isValidCarModel(selectedMake, selectedModel)) {
-                    break;
-                } else {
-                    System.out.println("Invalid Car Model. Please select a valid Car Model for the chosen make.");
-                }
+    public String getValidCarModel(Scanner scannerInput, String selectedMake) {
+        String selectedModel;
+        while (true) {
+            System.out.println("[Select a Model for " + selectedMake + "]" + ":");
+            this.printCarModelsByMake(selectedMake);
+            selectedModel = scannerInput.nextLine();
+            if (this.isValidCarModel(selectedMake, selectedModel)) {
+                break;
+            } else {
+                System.out.println("Invalid Car Model. Please select a valid Car Model for the chosen make.");
             }
-            return selectedModel;
         }
+        return selectedModel;
+    }
 
-        public String getValidBodyType(Scanner scannerInput, String selectedMake, String selectedModel) {
-            String selectedBodyType;
-            while (true) {
-                System.out.println("[Available Body Types for " + selectedModel + " under " + selectedMake + "]" + ":");
-                this.printBodyTypesByModel(selectedMake, selectedModel);
-                selectedBodyType = scannerInput.nextLine();
-                if (this.isValidBodyType(selectedMake, selectedModel, selectedBodyType)) {
-                    break;
-                } else {
-                    System.out.println("Invalid Body Type. Please select a valid Body Type for the chosen make and model.");
-                }
+    public String getValidBodyType(Scanner scannerInput, String selectedMake, String selectedModel) {
+        String selectedBodyType;
+        while (true) {
+            System.out.println("[Available Body Types for " + selectedModel + " under " + selectedMake + "]" + ":");
+            this.printBodyTypesByModel(selectedMake, selectedModel);
+            selectedBodyType = scannerInput.nextLine();
+            if (this.isValidBodyType(selectedMake, selectedModel, selectedBodyType)) {
+                break;
+            } else {
+                System.out.println("Invalid Body Type. Please select a valid Body Type for the chosen make and model.");
             }
-            return selectedBodyType;
         }
+        return selectedBodyType;
+    }
 }

@@ -62,6 +62,7 @@ public class InputHandler {
         while (true) {
             System.out.println("========Select a Car Make==========");
             carModels.printCarMakes();
+            System.out.println("Please Pick a Model (Case Sensitive): ");
             selectedMake = scannerInput.nextLine();
 
             if (carModels.isValidCarMake(selectedMake)) {

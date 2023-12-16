@@ -28,6 +28,9 @@ public class ConsoleUI {
         System.out.println("Wheel Type: " + car.getWheelType());
         System.out.println("Interior: " + car.getInterior());
         System.out.println("Sound System: " + car.getSoundSystem());
+        System.out.println("Total Customization Cost: $" + car.calculateCustomizationCost());
+        System.out.println("Note: The base of the car is $50,000");
+
     }
 
     public int getUserChoice() {
