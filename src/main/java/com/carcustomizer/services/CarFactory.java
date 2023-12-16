@@ -4,7 +4,9 @@ package main.java.com.carcustomizer.services;
 public class CarFactory {
 
     // createCar method: Constructs a Car object with specified customization options.
-    // This method encapsulates the object creation process, providing flexibility and maintainability.
+    // This method encapsulates the object creation process. 
+
+    // Used this link for more resources and help: https://www.tutorialspoint.com/design_pattern/factory_pattern.htm 
     public Car createCar(CustomizationOptions.Color color,
                          CustomizationOptions.WheelType wheelType,
                          CustomizationOptions.Interior interior,
