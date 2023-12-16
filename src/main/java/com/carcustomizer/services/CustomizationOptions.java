@@ -1,10 +1,12 @@
 package main.java.com.carcustomizer.services;
 
+// Class defining enums for car customization options
 public class CustomizationOptions {
 
     public enum Color {
         RED, BLUE, BLACK, WHITE;
 
+        // Converts a String to a Color enum
         public static Color fromString(String colorStr) {
             for (Color color : Color.values()) {
                 if (color.toString().equalsIgnoreCase(colorStr)) {
@@ -41,6 +43,7 @@ public class CustomizationOptions {
     public enum Interior {
         LEATHER, FABRIC, SUEDE;
 
+        // Converts a String to an Interior enum
         public static Interior fromString(String interiorStr) {
             for (Interior interior : Interior.values()) {
                 if (interior.toString().equalsIgnoreCase(interiorStr)) {
@@ -59,6 +62,7 @@ public class CustomizationOptions {
     public enum SoundSystem {
         STANDARD, PREMIUM, DELUXE;
 
+        // Converts a String to a SoundSystem enum
         public static SoundSystem fromString(String soundSystemStr) {
             for (SoundSystem soundSystem : SoundSystem.values()) {
                 if (soundSystem.toString().equalsIgnoreCase(soundSystemStr)) {
@@ -73,6 +77,4 @@ public class CustomizationOptions {
             return name().charAt(0) + name().substring(1).toLowerCase();
         }
     }
-
 }
-
