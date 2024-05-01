@@ -1,6 +1,6 @@
 # CarCustomizer
 <br>
-**Team: Nathan Mukooba and Abiriham Bitew**
+__Team: Nathan Mukooba and Abiriham Bitew__
 <br>
 A Console text-based application built in Java that allows you to customize a car 
 <br>
