@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Car Make: null
 Car Model: null
 Color: Red
@@ -21,4 +22,6 @@ Wheel Type: Alloy
 Interior: Fabric
 Sound System: Premium
 Total Cost: $51800.0
+=======
+>>>>>>> f96e1c12b6790b6e0cb7ea3276c56df59cd410bc
 

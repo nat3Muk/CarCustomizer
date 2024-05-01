@@ -12,3 +12,6 @@ Additional Comments:
 To run this project do: **javac main/java/com/carcustomizer/CarCustomizerApp.java** <br>
 to compile everything, then run **java -cp . main.java.com.carcustomizer.CarCustomizerApp**. <br>
 [Car Data Open-Source](https://github.com/abhionlyone/us-car-models-data)
+
+
+***NOTE: You might need to download the demo video to watch it!!!***
