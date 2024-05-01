@@ -6,7 +6,7 @@ Team Members:
 
 Java Version: Installed from JDK "Java 21"
 
-Additional Comments:
+**Additional Comments:**
 <br>
 To run this project do: **javac main/java/com/carcustomizer/CarCustomizerApp.java** <br>
 to compile everything, then run **java -cp . main.java.com.carcustomizer.CarCustomizerApp**. <br>
